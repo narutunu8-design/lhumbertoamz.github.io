@@ -420,6 +420,84 @@
     border-color: var(--text-dim);
   }
 
+  /* BOING CASE STUDY */
+  .boing-project { overflow: hidden; }
+
+  .boing-phase {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 48px;
+  }
+
+  .boing-phase--dark { background: var(--bg); }
+
+  .boing-phase-header {
+    margin-bottom: 32px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    gap: 8px 20px;
+    align-items: start;
+  }
+
+  .boing-phase-num {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    grid-row: 1;
+    grid-column: 1;
+    padding-top: 4px;
+  }
+
+  .boing-phase-title {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2.5vw, 32px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    grid-row: 1;
+    grid-column: 2;
+  }
+
+  .boing-phase-desc {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--text-muted);
+    grid-row: 2;
+    grid-column: 2;
+    max-width: 600px;
+  }
+
+  .boing-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+  }
+
+  .boing-cell {
+    background: var(--surface2);
+    aspect-ratio: 9/16;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .boing-cell iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  @media (max-width: 900px) {
+    .boing-phase { padding: 24px; }
+    .boing-grid { grid-template-columns: repeat(2, 1fr); }
+    .boing-phase-header { grid-template-columns: 1fr; }
+    .boing-phase-title { grid-column: 1; }
+    .boing-phase-desc { grid-column: 1; }
+  }
+
   /* PROJECT SEPARATOR */
   .project-separator {
     display: flex;
@@ -1135,31 +1213,108 @@
       <span class="project-separator-label">BOING!</span>
     </div>
 
-    <!-- BOING! TESIS - PLACEHOLDER -->
-    <div class="project-item fade-up" data-category="AI · Video Generation · Research">
+    <!-- BOING! CASE STUDY COMPLETO -->
+    <div class="project-item fade-up boing-project" data-category="AI · LoRA · Video Generation">
+
+      <!-- HERO INFO -->
       <div class="project-inner">
         <div class="project-media">
-          <div class="project-media-placeholder">
-            <div class="play-icon">▶</div>
-            <span>Boing! — Video destacado próximamente</span>
-          </div>
+          <iframe src="https://drive.google.com/file/d/1OJ2wvT2ZPpXgmkMAp7cjIxEPnzB-jzkH/preview" allow="autoplay" allowfullscreen></iframe>
         </div>
         <div class="project-info">
-          <div class="project-category">IA Generativa · Producción Audiovisual</div>
+          <div class="project-category">IA Generativa · Producción Audiovisual · Tesis</div>
           <h3 class="project-name">Boing! —<br>AI Content<br>Production</h3>
           <p class="project-desc">
-            Tesis de licenciatura: producción de contenido digital para redes sociales con Inteligencia Artificial. Entrenamiento de un <strong>LoRA custom sobre HunyuanVideo</strong>, exploración de 13+ modelos de generación de video y desarrollo de brief creativo completo con guión, escenario, vestuario, celebridades y props.
+            Tesis de licenciatura: producción de contenido digital para redes sociales con Inteligencia Artificial. Entrenamiento del modelo <strong>Pascual</strong> — un LoRA custom sobre HunyuanVideo — y desarrollo de brief creativo completo con guión, escenario, vestuario, celebridades y props específicos.
           </p>
           <div class="project-tags">
             <span class="tag">ComfyUI</span>
             <span class="tag">HunyuanVideo</span>
             <span class="tag">LoRA Training</span>
             <span class="tag">Stable Diffusion</span>
-            <span class="tag">Miro</span>
             <span class="tag">Brief Creativo</span>
           </div>
+          <a href="https://drive.google.com/file/d/1d_Qd6pFUJyTNxCE-XOnGNRG13HMhqX-Y/preview" target="_blank" rel="noopener" class="project-link">Ver brief completo ↗</a>
         </div>
       </div>
+
+      <!-- FASE 01 -->
+      <div class="boing-phase">
+        <div class="boing-phase-header">
+          <span class="boing-phase-num">Fase 01</span>
+          <span class="boing-phase-title">Modelo Pascual — Entrenamiento & Pruebas</span>
+          <p class="boing-phase-desc">Entrenamiento de un LoRA custom sobre HunyuanVideo usando una base de datos del producto Boing!. Exploración de formatos para redes sociales — vertical, cuadrado y horizontal.</p>
+        </div>
+        <div class="boing-grid">
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1-HCXfV1QLgWEoxOejN8whQSN-g7DHRJp/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/10n6tQN5qwgN2MgR6ch5PRXSmNnvEzYqo/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/14yeepIQX5aMIeCheJ4mCJ46zew1vKmf0/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/18Ngzk1lYpfwh3a47pqXBIqC7hlmhl1uc/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/18kP03UdjtWUrRrtsGn1Y1KUG_AzghIvZ/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1AD1LTpx0AynL62JamDLGJ0t2P4QtEHhb/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1C86_SGIj1ROTcVxdA2XjMN5b5esjp9Lk/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1ERSo2vyqouy_ySes189TPooNp0lLWJTt/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1GR6d5-aml5ioUGds-RwrajMJel_6MsUv/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1GkwHcJFovQrObmNLxxdHUgk6tBZdhY5R/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1HKu6tJum6AETinvrDYY6avw9PXRJnwi0/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1JrXeX9j83yjN6FRCsGRFEU-73Nk5_o7C/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1NB0WyJZA0sBL3XRvXCtTcB9QAAgxmsWm/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1NbT0N1h6KWpZlzw7dDbbEnx0jf4Gvqhy/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1Z1n8zHbL_xEkU819WGIkBulAmhyK-cBZ/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1Z3JNfMuytdo4IHReDrzcXGjZ7y0LbLX6/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1_Le8Pf_MutuuL5OrxQCb7lcrwyeo-kdT/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1bHziQ9_Qx88baI9PwczMwCYlCCXCrJiX/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1eMMU0sOL1Gkf47obKZjacofrX7YnOr4I/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1edQDqnvB3zS15lP5TtfCa83OmCn2_Oav/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1gFlOVeAG1x2ckP_QDzIca_mpgiTulDKV/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1ke7-SRoOJsbxvffAGpu0p7jG5FnpOG-R/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1of6b9Vkxk1Xphf-CacKmARU8BMENmpvV/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1qASGr97ZgK8TAkaPNwppsDCMcCVkFzpD/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1sgHZ_PAh4tZjX9BbjKaEdY38wSN6U2_W/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1ypc3nlXvbv5vF1_o3XfhIejIzVn6DZ02/preview" allow="autoplay" allowfullscreen></iframe></div>
+        </div>
+      </div>
+
+      <!-- FASE 02 -->
+      <div class="boing-phase boing-phase--dark">
+        <div class="boing-phase-header">
+          <span class="boing-phase-num">Fase 02</span>
+          <span class="boing-phase-title">Resultados Finales — Brief Aplicado</span>
+          <p class="boing-phase-desc">Videos finales generados aplicando el brief de producción completo: ubicación, diálogos, vestuario, celebridades y props específicos para la marca Boing!</p>
+        </div>
+        <div class="boing-grid">
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/14IkTOZGHBca1rbbvF6MI6QwoBbTwLeno/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/15BAQMOLGXnKh5faom-xdNH1V5MXo0GXj/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/16ZYxJMb9dpYmMknkyTBr9b8kHdWSat-R/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1A6xyV3s7IK_oZBq1SEcnrtFBIlGl5C4Y/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1FMk_a2nw-B7h2XcP5TgJuBelIeSTce4e/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1KeSF-PlEOK7gUznkT9jvfNuOTmYsGqog/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1OaPMlyogXxEQ_TD0nXuBvxm1LKEDXkOL/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1SVt9KNTQLpx-aQtfJhUr6uacNzn9axV6/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1UDQN8eoYk9jYd1S1M1tCED6uVeYNpGuM/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1WM1Jk74_0MIlWLQrx2qlUAn0r4lEhNij/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1WiE-qQtaURrQ4iEPrC4k07V-8xBK0fD9/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1XXWybff1YfmiB0TviVQLz_8oN5ASTk-s/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1YUoTmlpQ0lLzZbTGN1mcnj3BtNqX87Z6/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1Zc54lp7aeBW5lOF6dEezyF2h1FjighT-/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1aPTvv3fj0piOl9oVTztlfwtFeB_DzUY2/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1imu3uuD3k4sqGbcf5_UR42EjbCdDqPmb/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1j-6HKovgWRyqq-OVWQZNs15tswIEHqLM/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1lQHE2IvCNGYQki2-B9UqJPlog_XAVCyg/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1pewwP-cfGfCmkRymBefjPiCGdukbEFmQ/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1qYIbHqEQo-Ih8doUcvoObUV-fmf2hG-M/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1s5DLEBx2hKlxk3qHRGFAsaZD6gusLhRJ/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1s5X9wwZI7TaaBOA8WtAu620UDv2cc2s2/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1sSCsCbg0L80PH69n2U0V5YPpGmv566TB/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1t2qpDnkDoCOpdrXmTQaU-WtiR18Yk7zN/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1uYaKt-XAEP5mxvjv5Ug652jedQ78P0Wv/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1v3qNbp4izM0mQ1vkBJ8Prp4oToP2YBJc/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1w0evQF3Thwlv4bMhi5cgNJ1Wbq2KqH6i/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1w4kAiw6aum4BDwsoyq1l8s_UwBPA6GyD/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="boing-cell"><iframe src="https://drive.google.com/file/d/1wD-cToYolgBFKR4KEmqUpIhEuomVq-rm/preview" allow="autoplay" allowfullscreen></iframe></div>
+        </div>
+      </div>
+
     </div>
 
     <!-- SEPARATOR -->
