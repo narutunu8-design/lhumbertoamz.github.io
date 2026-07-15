@@ -78,6 +78,24 @@
     text-transform: uppercase;
   }
 
+  .hero-reel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45%;
+    height: 100%;
+    overflow: hidden;
+    opacity: 0.15;
+    pointer-events: none;
+  }
+
+  .hero-reel iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    object-fit: cover;
+  }
+
   /* NAV */
   nav {
     position: fixed;
@@ -497,6 +515,24 @@
     .boing-phase-title { grid-column: 1; }
     .boing-phase-desc { grid-column: 1; }
   }
+
+  .boing-cell-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 8px 12px;
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text);
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .boing-cell:hover .boing-cell-label { opacity: 1; }
 
   /* PROJECT SEPARATOR */
   .project-separator {
@@ -1081,6 +1117,10 @@
     <a href="#work" class="hero-cta">Ver proyectos →</a>
   </div>
   <div class="hero-scroll" aria-hidden="true">Scroll</div>
+  <!-- REEL 2025 -->
+  <div class="hero-reel">
+    <iframe src="https://drive.google.com/file/d/16ZBG2NAl8KmJsJaYBNUq5uUSD461Qbke/preview" allow="autoplay" allowfullscreen></iframe>
+  </div>
 </section>
 
 <!-- WORK -->
@@ -1104,7 +1144,7 @@
       <div class="project-inner">
         <div class="project-media">
           <iframe
-            src="https://player.vimeo.com/video/1100375551?badge=0&autopause=0&autoplay=1&muted=1&loop=1&background=0&color=C8FF00&title=0&byline=0&portrait=0"
+            src="https://drive.google.com/file/d/1Ac6dZfEbtFt4fg9ZM5IN0u27e764mMtP/preview"
             allow="autoplay; fullscreen; picture-in-picture"
             title="Barracuda Solutions">
           </iframe>
@@ -1176,7 +1216,7 @@
         <!-- Hero principal horizontal -->
         <div class="project-media">
           <iframe
-            src="https://player.vimeo.com/video/1161619908?badge=0&autopause=0&autoplay=1&muted=1&loop=1&background=0&color=C8FF00&title=0&byline=0&portrait=0"
+            src="https://drive.google.com/file/d/1lwKVQCtXQgHeGsvckRMUhAvtxsjIyXD7/preview"
             allow="autoplay; fullscreen; picture-in-picture"
             title="ÉCHALE - Adobe Home Aid">
           </iframe>
@@ -1186,21 +1226,21 @@
       <div class="project-videos-grid">
         <!-- Reels verticales -->
         <div class="video-thumb video-thumb--vertical">
-          <iframe src="https://player.vimeo.com/video/1161627435?badge=0&autopause=0&autoplay=1&muted=1&loop=1&background=0&color=C8FF00&title=0&byline=0&portrait=0" allow="autoplay; fullscreen" title="ÉCHALE reel 1"></iframe>
+          <iframe src="https://drive.google.com/file/d/11u3yRwjo2IlHDHReuCABTXa66m3L-ns1/preview" allow="autoplay; fullscreen" title="ÉCHALE reel 1"></iframe>
         </div>
         <div class="video-thumb video-thumb--vertical">
-          <iframe src="https://player.vimeo.com/video/1161625158?badge=0&autopause=0&autoplay=1&muted=1&loop=1&background=0&color=C8FF00&title=0&byline=0&portrait=0" allow="autoplay; fullscreen" title="ÉCHALE reel 2"></iframe>
+          <iframe src="https://drive.google.com/file/d/1OiDX_kIKTWQkH4VZdmXgGS09qxJjnxsY/preview" allow="autoplay; fullscreen" title="ÉCHALE reel 2"></iframe>
         </div>
         <div class="video-thumb video-thumb--vertical">
-          <iframe src="https://player.vimeo.com/video/1161625126?badge=0&autopause=0&autoplay=1&muted=1&loop=1&background=0&color=C8FF00&title=0&byline=0&portrait=0" allow="autoplay; fullscreen" title="ÉCHALE reel 3"></iframe>
+          <iframe src="https://drive.google.com/file/d/1bHONFAXWWFqcA_WJ-QGJ_0qKLni-X6fp/preview" allow="autoplay; fullscreen" title="ÉCHALE reel 3"></iframe>
         </div>
         <!-- Horizontales - misma fila, ancho completo -->
         <div class="video-thumb--full-row">
           <div class="video-thumb">
-            <iframe src="https://player.vimeo.com/video/1161622089?badge=0&autopause=0&autoplay=1&muted=1&loop=1&background=0&color=C8FF00&title=0&byline=0&portrait=0" allow="autoplay; fullscreen" title="ÉCHALE horizontal 1"></iframe>
+            <iframe src="https://drive.google.com/file/d/12643CZ2MBkROFTihheXf5WLG6OnbWKbw/preview" allow="autoplay; fullscreen" title="ÉCHALE horizontal 1"></iframe>
           </div>
           <div class="video-thumb">
-            <iframe src="https://player.vimeo.com/video/1161622149?badge=0&autopause=0&autoplay=1&muted=1&loop=1&background=0&color=C8FF00&title=0&byline=0&portrait=0" allow="autoplay; fullscreen" title="ÉCHALE horizontal 2"></iframe>
+            <iframe src="https://drive.google.com/file/d/1Hnx29b1Bacg-oTHm7cOGLfr_hSSrqVjF/preview" allow="autoplay; fullscreen" title="ÉCHALE horizontal 2"></iframe>
           </div>
         </div>
       </div>
@@ -1324,7 +1364,7 @@
       <span class="project-separator-label" style="font-size: clamp(40px, 6vw, 90px); white-space: nowrap;">POP &amp; POUR</span>
     </div>
 
-    <!-- POP & POUR - PLACEHOLDER -->
+    <!-- POP & POUR -->
     <div class="project-item fade-up" data-category="Unreal · AI · Immersive">
       <div class="project-inner">
         <div class="project-info">
@@ -1341,11 +1381,18 @@
           </div>
         </div>
         <div class="project-media">
-          <iframe
-            src="https://player.vimeo.com/video/1094260000?badge=0&autopause=0&autoplay=1&muted=1&loop=1&background=0&color=C8FF00&title=0&byline=0&portrait=0"
-            allow="autoplay; fullscreen; picture-in-picture"
-            title="Pop & Pour">
-          </iframe>
+          <iframe src="https://drive.google.com/file/d/1VMLYqtLReVTUyNw06D1xXBioIAUMw6HP/preview" allow="autoplay" allowfullscreen></iframe>
+        </div>
+      </div>
+      <!-- Videos de proceso -->
+      <div class="project-videos-grid">
+        <div class="video-thumb video-thumb--horizontal video-thumb--full-row" style="grid-column:1/-1; display:grid; grid-template-columns:1fr 1fr; gap:2px;">
+          <div class="video-thumb video-thumb--horizontal" style="aspect-ratio:16/9; position:relative;">
+            <iframe src="https://drive.google.com/file/d/1FAXhK73nP1MJ6Z9FU6rJAxLVVm136PGY/preview" allow="autoplay" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:none;"></iframe>
+          </div>
+          <div class="video-thumb video-thumb--horizontal" style="aspect-ratio:16/9; position:relative;">
+            <iframe src="https://drive.google.com/file/d/1oKxUbwcHeIxhNlm_Xs4-oVxmuMo3h_CT/preview" allow="autoplay" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:none;"></iframe>
+          </div>
         </div>
       </div>
     </div>
@@ -1378,6 +1425,53 @@
             <span class="tag">3D</span>
             <span class="tag">Inmersivo</span>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEPARATOR -->
+    <div class="project-separator">
+      <span class="project-separator-num">06 / 06</span>
+      <div class="project-separator-line"></div>
+      <span class="project-separator-label">INDEPENDIENTES</span>
+    </div>
+
+    <!-- PROYECTOS INDEPENDIENTES -->
+    <div class="project-item fade-up" data-category="Motion · 3D · Experimental">
+      <div class="project-info" style="padding: 56px 48px;">
+        <div class="project-category">Proyectos Independientes</div>
+        <h3 class="project-name" style="margin-bottom: 32px;">Personal<br>Work</h3>
+      </div>
+      <!-- Horizontales -->
+      <div class="boing-grid" style="grid-template-columns: repeat(3,1fr);">
+        <div class="boing-cell" style="aspect-ratio:16/9;">
+          <iframe src="https://drive.google.com/file/d/17N3DEzyEFqzVib0TN4S7YGy7UYnaMyyD/preview" allow="autoplay" allowfullscreen></iframe>
+          <div class="boing-cell-label">Oso Negro</div>
+        </div>
+        <div class="boing-cell" style="aspect-ratio:16/9;">
+          <iframe src="https://drive.google.com/file/d/1IKn0l4lXG9kB_f2tDGK2-9PYdnULVkDG/preview" allow="autoplay" allowfullscreen></iframe>
+          <div class="boing-cell-label">Beat It — Motion Lyric</div>
+        </div>
+        <div class="boing-cell" style="aspect-ratio:16/9;">
+          <iframe src="https://drive.google.com/file/d/1OA48X2lSNDGYTtqp3p3tKmYcFZw_JjrT/preview" allow="autoplay" allowfullscreen></iframe>
+          <div class="boing-cell-label">Lumen Vitae</div>
+        </div>
+        <div class="boing-cell" style="aspect-ratio:16/9;">
+          <iframe src="https://drive.google.com/file/d/1OfhE_mCsDsY8BKV5kEvJlXYETdH81dPK/preview" allow="autoplay" allowfullscreen></iframe>
+          <div class="boing-cell-label">Geometric Motion</div>
+        </div>
+        <div class="boing-cell" style="aspect-ratio:16/9;">
+          <iframe src="https://drive.google.com/file/d/1sFeOi4jPKNBMZttNDveIuBOA7nY1qd4r/preview" allow="autoplay" allowfullscreen></iframe>
+          <div class="boing-cell-label">Retro Game Intro</div>
+        </div>
+        <!-- Verticales -->
+        <div class="boing-cell" style="aspect-ratio:9/16; grid-row: span 2;">
+          <iframe src="https://drive.google.com/file/d/1jMV_pgkuOI0gB2l3pvB_4fu0na6dvf8F/preview" allow="autoplay" allowfullscreen></iframe>
+          <div class="boing-cell-label">Video Estilo TikTok</div>
+        </div>
+        <div class="boing-cell" style="aspect-ratio:9/16; grid-row: span 2;">
+          <iframe src="https://drive.google.com/file/d/1x-3UBpqWh6Z0qI9t1ZFxQerOVH9Sv1mO/preview" allow="autoplay" allowfullscreen></iframe>
+          <div class="boing-cell-label">Weather App — Motion</div>
         </div>
       </div>
     </div>
