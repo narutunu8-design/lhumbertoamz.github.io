@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Work — Humberto Nuñez</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500&family=Fragment+Mono&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #0A0A0A; --surface: #111111; --surface2: #1A1A1A;
+  --border: #222222; --text: #F0EDE6; --text-muted: #666666;
+  --text-dim: #3A3A3A; --accent: #C8FF00;
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'Fragment Mono', monospace;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 15px; line-height: 1.6; cursor: none; overflow-x: hidden; }
+.cursor { position: fixed; width: 10px; height: 10px; background: var(--accent); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: width .3s,height .3s; mix-blend-mode: difference; }
+.cursor-ring { position: fixed; width: 40px; height: 40px; border: 1px solid rgba(200,255,0,.4); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: transform .15s,width .3s,height .3s; }
+.cursor-label { position: fixed; font-family: var(--font-mono); font-size: 10px; color: var(--accent); pointer-events: none; z-index: 9997; transform: translate(16px,-50%); opacity: 0; transition: opacity .2s; white-space: nowrap; letter-spacing: .1em; text-transform: uppercase; }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 28px 48px; display: flex; justify-content: space-between; align-items: center; }
+nav::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom,rgba(10,10,10,.95),transparent); pointer-events: none; }
+.nav-logo { font-family: var(--font-display); font-size: 14px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--text); text-decoration: none; position: relative; z-index: 1; }
+.nav-links { display: flex; gap: 40px; list-style: none; position: relative; z-index: 1; }
+.nav-links a { font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color .2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--accent); }
+
+/* PAGE HERO */
+.page-hero { min-height: 50vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 48px 64px; position: relative; overflow: hidden; border-bottom: 1px solid var(--border); }
+.page-hero-bg { position: absolute; top: 50%; left: -20px; transform: translateY(-55%); font-family: var(--font-display); font-size: clamp(100px,16vw,220px); font-weight: 800; color: transparent; -webkit-text-stroke: 1px #444444; line-height: .85; pointer-events: none; user-select: none; white-space: nowrap; letter-spacing: -.04em; }
+.page-hero-content { position: relative; z-index: 2; }
+.page-eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+.page-eyebrow::before { content: ''; display: block; width: 32px; height: 1px; background: var(--accent); }
+.page-title { font-family: var(--font-display); font-size: clamp(48px,7vw,96px); font-weight: 800; line-height: .92; letter-spacing: -.03em; }
+
+/* WORK SECTION */
+.work { background: var(--bg); padding-bottom: 120px; }
+.project-grid { display: grid; grid-template-columns: 1fr; gap: 2px; }
+
+/* SEPARATOR */
+.project-separator { display: flex; align-items: center; justify-content: space-between; padding: 48px 48px; background: var(--bg); border-top: 1px solid var(--border); overflow: hidden; }
+.project-separator-num { font-family: var(--font-mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--text-dim); }
+.project-separator-line { flex: 1; height: 1px; background: linear-gradient(to right,var(--border),transparent); margin: 0 32px; }
+.project-separator-label { font-family: var(--font-display); font-size: clamp(64px,10vw,140px); font-weight: 800; color: transparent; -webkit-text-stroke: 1px #444444; letter-spacing: -.04em; line-height: 1; white-space: nowrap; pointer-events: none; user-select: none; opacity: .6; }
+
+/* PROJECT ITEM */
+.project-item { background: var(--surface); overflow: hidden; position: relative; transition: background .3s; }
+.project-item:hover { background: var(--surface2); }
+.project-inner { display: grid; grid-template-columns: 1fr 1fr; min-height: 400px; }
+.project-item:nth-child(even) .project-inner { direction: rtl; }
+.project-item:nth-child(even) .project-info { direction: ltr; }
+.project-media { background: var(--surface2); position: relative; overflow: hidden; min-height: 400px; }
+.project-media iframe { width: 100%; height: 100%; position: absolute; inset: 0; border: none; }
+.project-media-placeholder { width: 100%; height: 100%; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 12px; color: var(--text-dim); font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
+.play-icon { width: 48px; height: 48px; border: 1px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; color: var(--text-muted); }
+.project-info { padding: 56px 48px; display: flex; flex-direction: column; justify-content: center; direction: ltr; }
+.project-category { font-family: var(--font-mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+.project-category::before { content: ''; display: block; width: 20px; height: 1px; background: var(--accent); }
+.project-name { font-family: var(--font-display); font-size: clamp(28px,3vw,42px); font-weight: 800; letter-spacing: -.02em; line-height: 1; margin-bottom: 20px; }
+.project-desc { font-size: 14px; line-height: 1.75; color: var(--text-muted); margin-bottom: 32px; }
+.project-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag { font-family: var(--font-mono); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; color: var(--text-muted); border: 1px solid var(--border); padding: 5px 10px; }
+.project-link { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--accent); text-decoration: none; margin-top: 24px; padding-bottom: 3px; border-bottom: 1px solid rgba(200,255,0,.3); transition: border-color .2s; }
+.project-link:hover { border-color: var(--accent); }
+
+/* VIDEO GRIDS */
+.project-videos-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; margin-top: 2px; }
+.video-thumb { background: var(--surface2); position: relative; overflow: hidden; }
+.video-thumb--vertical { aspect-ratio: 9/16; }
+.video-thumb--horizontal { aspect-ratio: 16/9; }
+.video-thumb--full-row { grid-column: 1/-1; display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+.video-thumb--full-row .video-thumb { aspect-ratio: 16/9; position: relative; }
+.video-thumb iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
+/* ADCADEMY GALLERY */
+.adcademy-gallery { background: var(--bg); border-top: 1px solid var(--border); }
+.gallery-label { font-family: var(--font-mono); font-size: 9px; letter-spacing: .15em; text-transform: uppercase; color: var(--text-dim); padding: 16px 48px; display: flex; align-items: center; justify-content: space-between; }
+.gallery-nav { display: flex; gap: 8px; }
+.gallery-btn { width: 28px; height: 28px; border: 1px solid var(--border); background: transparent; color: var(--text-muted); cursor: none; display: flex; align-items: center; justify-content: center; font-size: 12px; transition: border-color .2s,color .2s; }
+.gallery-btn:hover { border-color: var(--accent); color: var(--accent); }
+.gallery-track-wrapper { overflow: hidden; }
+.gallery-scroll { display: flex; gap: 2px; transition: transform .5s cubic-bezier(.4,0,.2,1); }
+.gallery-item { flex: 0 0 380px; width: 380px; height: 220px; overflow: hidden; position: relative; cursor: none; }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; object-position: top left; transition: transform .6s,filter .3s; display: block; filter: grayscale(15%); }
+.gallery-item:hover img { transform: scale(1.03); filter: grayscale(0%); }
+.gallery-item::after { content: '↗'; position: absolute; bottom: 12px; right: 12px; width: 28px; height: 28px; background: rgba(10,10,10,.8); color: var(--accent); font-size: 14px; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity .2s; }
+.gallery-item:hover::after { opacity: 1; }
+
+/* LIGHTBOX */
+.lightbox { position: fixed; inset: 0; background: rgba(0,0,0,.95); z-index: 99999; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity .3s; cursor: none; }
+.lightbox.active { opacity: 1; pointer-events: all; }
+.lightbox-img { max-width: 90vw; max-height: 88vh; object-fit: contain; transform: scale(.95); transition: transform .3s; display: block; }
+.lightbox.active .lightbox-img { transform: scale(1); }
+.lightbox-close { position: absolute; top: 24px; right: 32px; font-family: var(--font-mono); font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--text-muted); background: transparent; border: 1px solid var(--border); padding: 8px 16px; cursor: none; transition: color .2s,border-color .2s; }
+.lightbox-close:hover { color: var(--accent); border-color: var(--accent); }
+.lightbox-counter { position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); font-family: var(--font-mono); font-size: 10px; letter-spacing: .15em; color: var(--text-muted); }
+.lightbox-prev,.lightbox-next { position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; border: 1px solid var(--border); background: transparent; color: var(--text-muted); font-size: 18px; cursor: none; display: flex; align-items: center; justify-content: center; transition: color .2s,border-color .2s; }
+.lightbox-prev { left: 24px; } .lightbox-next { right: 24px; }
+.lightbox-prev:hover,.lightbox-next:hover { color: var(--accent); border-color: var(--accent); }
+
+/* BOING */
+.boing-phase { background: var(--surface); border-top: 1px solid var(--border); padding: 48px; }
+.boing-phase--dark { background: var(--bg); }
+.boing-phase-header { margin-bottom: 32px; display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto auto; gap: 8px 20px; align-items: start; }
+.boing-phase-num { font-family: var(--font-mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); grid-row: 1; grid-column: 1; padding-top: 4px; }
+.boing-phase-title { font-family: var(--font-display); font-size: clamp(20px,2.5vw,32px); font-weight: 700; letter-spacing: -.02em; grid-row: 1; grid-column: 2; }
+.boing-phase-desc { font-size: 13px; line-height: 1.7; color: var(--text-muted); grid-row: 2; grid-column: 2; max-width: 600px; }
+.boing-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; }
+.boing-cell { background: var(--surface2); aspect-ratio: 9/16; position: relative; overflow: hidden; }
+.boing-cell iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
+.boing-cell-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 8px 12px; font-family: var(--font-mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--text); background: linear-gradient(to top,rgba(0,0,0,.8),transparent); opacity: 0; transition: opacity .2s; }
+.boing-cell:hover .boing-cell-label { opacity: 1; }
+
+/* PROYECTOS INDEPENDIENTES */
+.indep-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; }
+.indep-cell { background: var(--surface2); position: relative; overflow: hidden; }
+.indep-cell iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
+.indep-cell-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 12px 16px; font-family: var(--font-mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--text); background: linear-gradient(to top,rgba(0,0,0,.9),transparent); opacity: 0; transition: opacity .2s; }
+.indep-cell:hover .indep-cell-label { opacity: 1; }
+
+footer { background: var(--bg); padding: 32px 48px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); margin-top: 2px; }
+footer p { font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; color: var(--text-dim); text-transform: uppercase; }
+.fade-up { opacity: 0; transform: translateY(32px); transition: opacity .7s ease,transform .7s ease; }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+@media(max-width:900px) {
+  nav { padding: 20px 24px; } .nav-links { display: none; }
+  .page-hero { padding: 0 24px 48px; }
+  .project-inner { grid-template-columns: 1fr; }
+  .project-item:nth-child(even) .project-inner { direction: ltr; }
+  .project-media { min-height: 260px; }
+  .project-info { padding: 32px 24px; }
+  .project-separator { padding: 32px 24px; }
+  .project-separator-label { font-size: 48px; }
+  .boing-grid { grid-template-columns: repeat(2,1fr); }
+  .indep-grid { grid-template-columns: 1fr 1fr; }
+  .gallery-item { flex: 0 0 260px; width: 260px; height: 160px; }
+  footer { flex-direction: column; gap: 12px; text-align: center; }
+}
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="cursor-label" id="cursorLabel"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">Humberto Nuñez</a>
+  <ul class="nav-links">
+    <li><a href="work.html" class="active">Work</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg" aria-hidden="true">WORK</div>
+  <div class="page-hero-content">
+    <div class="page-eyebrow">Proyectos</div>
+    <h1 class="page-title">Selected<br>Work</h1>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="work">
+  <div class="project-grid">
+
+    <!-- 01 BARRACUDA -->
+    <div class="project-separator">
+      <span class="project-separator-num">01 / 06</span>
+      <div class="project-separator-line"></div>
+      <span class="project-separator-label">BARRACUDA</span>
+    </div>
+    <div class="project-item fade-up" data-category="Ads · Rich Media · Web">
+      <div class="project-inner">
+        <div class="project-media">
+          <iframe src="https://drive.google.com/file/d/1Ac6dZfEbtFt4fg9ZM5IN0u27e764mMtP/preview" allow="autoplay" allowfullscreen></iframe>
+        </div>
+        <div class="project-info">
+          <div class="project-category">Diseño Digital · Publicidad</div>
+          <h3 class="project-name">Barracuda Solutions</h3>
+          <p class="project-desc">Creación y desarrollo de formatos Rich Media a través de un CMP (Creative Management Platform) para marcas como <strong>Comex, Doritos, Gatorade, Chokis y Pepsi</strong>. Diseño y montaje del sitio de e-learning <strong>Adcademy</strong> utilizando plataforma DCO (Dynamic Creative Optimization).</p>
+          <div class="project-tags">
+            <span class="tag">Rich Media</span><span class="tag">CMP</span><span class="tag">DCO</span><span class="tag">WordPress</span><span class="tag">Adobe Suite</span>
+          </div>
+          <a href="https://www.adcademy.com.mx/" target="_blank" rel="noopener" class="project-link">Ver Adcademy en vivo ↗</a>
+        </div>
+      </div>
+      <div class="adcademy-gallery">
+        <div class="gallery-label">
+          <span>Adcademy — Sitio e-learning diseñado y montado en WordPress</span>
+          <div class="gallery-nav">
+            <button class="gallery-btn" id="galleryPrev">←</button>
+            <button class="gallery-btn" id="galleryNext">→</button>
+          </div>
+        </div>
+        <div class="gallery-track-wrapper">
+          <div class="gallery-scroll" id="galleryTrack">
+            <div class="gallery-item" onclick="openLightbox(0)"><img src="adcademy-1.png" alt="Adcademy 1" loading="lazy"></div>
+            <div class="gallery-item" onclick="openLightbox(1)"><img src="adcademy-2.png" alt="Adcademy 2" loading="lazy"></div>
+            <div class="gallery-item" onclick="openLightbox(2)"><img src="adcademy-3.png" alt="Adcademy 3" loading="lazy"></div>
+            <div class="gallery-item" onclick="openLightbox(3)"><img src="adcademy-4.png" alt="Adcademy 4" loading="lazy"></div>
+            <div class="gallery-item" onclick="openLightbox(4)"><img src="adcademy-5.png" alt="Adcademy 5" loading="lazy"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 02 ÉCHALE -->
+    <div class="project-separator">
+      <span class="project-separator-num">02 / 06</span>
+      <div class="project-separator-line"></div>
+      <span class="project-separator-label">ÉCHALE</span>
+    </div>
+    <div class="project-item fade-up" data-category="Motion · Branding · Social">
+      <div class="project-inner">
+        <div class="project-info">
+          <div class="project-category">Animación · Branding · Marketing</div>
+          <h3 class="project-name">ÉCHALE /<br>Adobe Home Aid</h3>
+          <p class="project-desc">Edición y creación de presentaciones del programa de vivienda <strong>Hogar Forte</strong>. Creación y edición de logotipos, catálogos y libro de estilo. Producción de videos y animaciones 2D/3D para redes sociales y apoyo al área de Comunicación & Marketing.</p>
+          <div class="project-tags">
+            <span class="tag">After Effects</span><span class="tag">Premiere</span><span class="tag">Illustrator</span><span class="tag">Animación 2D</span><span class="tag">Motion Graphics</span><span class="tag">Branding</span>
+          </div>
+        </div>
+        <div class="project-media">
+          <iframe src="https://drive.google.com/file/d/1lwKVQCtXQgHeGsvckRMUhAvtxsjIyXD7/preview" allow="autoplay" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="project-videos-grid">
+        <div class="video-thumb video-thumb--vertical"><iframe src="https://drive.google.com/file/d/11u3yRwjo2IlHDHReuCABTXa66m3L-ns1/preview" allow="autoplay" allowfullscreen></iframe></div>
+        <div class="video-thumb video-thumb--vertical"><iframe src="https://drive.google.com/file/d/1OiDX_kIKTWQkH4VZdmXgGS09qxJjnxsY/preview" allow="autoplay" allowfullscreen></iframe></div>
+        <div class="video-thumb video-thumb--vertical"><iframe src="https://drive.google.com/file/d/1bHONFAXWWFqcA_WJ-QGJ_0qKLni-X6fp/preview" allow="autoplay" allowfullscreen></iframe></div>
+        <div class="video-thumb--full-row">
+          <div class="video-thumb"><iframe src="https://drive.google.com/file/d/12643CZ2MBkROFTihheXf5WLG6OnbWKbw/preview" allow="autoplay" allowfullscreen></iframe></div>
+          <div class="video-thumb"><iframe src="https://drive.google.com/file/d/1Hnx29b1Bacg-oTHm7cOGLfr_hSSrqVjF/preview" allow="autoplay" allowfullscreen></iframe></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 03 BOING -->
+    <div class="project-separator">
+      <span class="project-separator-num">03 / 06</span>
+      <div class="project-separator-line"></div>
+      <span class="project-separator-label">BOING!</span>
+    </div>
+    <div class="project-item fade-up" data-category="AI · LoRA · Video Generation">
+      <div class="project-inner">
+        <div class="project-media">
+          <iframe src="https://drive.google.com/file/d/1OJ2wvT2ZPpXgmkMAp7cjIxEPnzB-jzkH/preview" allow="autoplay" allowfullscreen></iframe>
+        </div>
+        <div class="project-info">
+          <div class="project-category">IA Generativa · Producción Audiovisual · Tesis</div>
+          <h3 class="project-name">Boing! —<br>AI Content<br>Production</h3>
+          <p class="project-desc">Tesis de licenciatura: producción de contenido digital para redes sociales con IA. Entrenamiento del modelo <strong>Pascual</strong> — un LoRA custom sobre HunyuanVideo — y desarrollo de brief creativo completo con guión, escenario, vestuario, celebridades y props.</p>
+          <div class="project-tags">
+            <span class="tag">ComfyUI</span><span class="tag">HunyuanVideo</span><span class="tag">LoRA Training</span><span class="tag">Stable Diffusion</span><span class="tag">Brief Creativo</span>
+          </div>
+          <a href="ia.html" class="project-link">Ver case study completo →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 04 POP & POUR -->
+    <div class="project-separator">
+      <span class="project-separator-num">04 / 06</span>
+      <div class="project-separator-line"></div>
+      <span class="project-separator-label" style="font-size:clamp(40px,6vw,90px);white-space:nowrap;">POP &amp; POUR</span>
+    </div>
+    <div class="project-item fade-up" data-category="Unreal · AI · Immersive">
+      <div class="project-inner">
+        <div class="project-info">
+          <div class="project-category">Unreal Engine · IA · Experiencia Inmersiva</div>
+          <h3 class="project-name">Pop & Pour</h3>
+          <p class="project-desc">Diseño de entorno virtual en <strong>Unreal Engine</strong> para exhibir contenido visual generado con IA (ComfyUI, RunDiffusion). Experiencia inmersiva basada en la narrativa visual de <strong>Coca-Cola</strong>, con personajes guía y entornos responsivos.</p>
+          <div class="project-tags">
+            <span class="tag">Unreal Engine</span><span class="tag">ComfyUI</span><span class="tag">RunDiffusion</span><span class="tag">World Building</span>
+          </div>
+          <a href="ia.html" class="project-link">Ver case study completo →</a>
+        </div>
+        <div class="project-media">
+          <iframe src="https://drive.google.com/file/d/1VMLYqtLReVTUyNw06D1xXBioIAUMw6HP/preview" allow="autoplay" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="video-thumb--full-row" style="margin-top:2px;">
+        <div class="video-thumb" style="aspect-ratio:16/9;position:relative;"><iframe src="https://drive.google.com/file/d/1FAXhK73nP1MJ6Z9FU6rJAxLVVm136PGY/preview" allow="autoplay" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:none;"></iframe></div>
+        <div class="video-thumb" style="aspect-ratio:16/9;position:relative;"><iframe src="https://drive.google.com/file/d/1oKxUbwcHeIxhNlm_Xs4-oVxmuMo3h_CT/preview" allow="autoplay" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:none;"></iframe></div>
+      </div>
+    </div>
+
+    <!-- 05 SKIN -->
+    <div class="project-separator">
+      <span class="project-separator-num">05 / 06</span>
+      <div class="project-separator-line"></div>
+      <span class="project-separator-label">SKIN</span>
+    </div>
+    <div class="project-item fade-up" data-category="3D · VR · Notch">
+      <div class="project-inner">
+        <div class="project-media">
+          <div class="project-media-placeholder">
+            <div class="play-icon">▶</div>
+            <span>Video próximamente</span>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-category">Modelado 3D · VR · Motion</div>
+          <h3 class="project-name">Skin</h3>
+          <p class="project-desc">Diseño y modelado de piezas 3D de telas procedurales en <strong>Gravity Sketch VR</strong> y animación en <strong>Notch</strong> para la pasarela de proyectos finales de la carrera de Diseño Textil y Moda. Exhibición en <strong>Inspace de Intus</strong>, espacio especializado en experiencias inmersivas.</p>
+          <div class="project-tags">
+            <span class="tag">Gravity Sketch VR</span><span class="tag">Notch</span><span class="tag">3D</span><span class="tag">Inmersivo</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 06 INDEPENDIENTES -->
+    <div class="project-separator">
+      <span class="project-separator-num">06 / 06</span>
+      <div class="project-separator-line"></div>
+      <span class="project-separator-label">INDEPENDIENTES</span>
+    </div>
+    <div class="project-item fade-up" data-category="Motion · 3D · Experimental">
+      <div class="project-info" style="padding:56px 48px;">
+        <div class="project-category">Proyectos Independientes</div>
+        <h3 class="project-name" style="margin-bottom:32px;">Personal<br>Work</h3>
+      </div>
+      <div class="indep-grid">
+        <div class="indep-cell" style="aspect-ratio:16/9;">
+          <iframe src="https://drive.google.com/file/d/17N3DEzyEFqzVib0TN4S7YGy7UYnaMyyD/preview" allow="autoplay" allowfullscreen></iframe>
+          <div class="indep-cell-label">Oso Negro</div>
+        </div>
+        <div class="indep-cell" style="aspect-ratio:16/9;">
+          <iframe src="https://drive.google.com/file/d/1IKn0l4lXG9kB_f2tDGK2-9PYdnULVkDG/preview" allow="autoplay" allowfullscreen></iframe>
+          <div class="indep-cell-label">Beat It — Motion Lyric</div>
+        </div>
+        <div class="indep-cell" style="aspect-ratio:16/9;">
+          <iframe src="https://drive.google.com/file/d/1OA48X2lSNDGYTtqp3p3tKmYcFZw_JjrT/preview" allow="autoplay" allowfullscreen></iframe>
+          <div class="indep-cell-label">Lumen Vitae</div>
+        </div>
+        <div class="indep-cell" style="aspect-ratio:16/9;">
+          <iframe src="https://drive.google.com/file/d/1OfhE_mCsDsY8BKV5kEvJlXYETdH81dPK/preview" allow="autoplay" allowfullscreen></iframe>
+          <div class="indep-cell-label">Geometric Motion</div>
+        </div>
+        <div class="indep-cell" style="aspect-ratio:16/9;">
+          <iframe src="https://drive.google.com/file/d/1sFeOi4jPKNBMZttNDveIuBOA7nY1qd4r/preview" allow="autoplay" allowfullscreen></iframe>
+          <div class="indep-cell-label">Retro Game Intro</div>
+        </div>
+        <div class="indep-cell" style="aspect-ratio:9/16;">
+          <iframe src="https://drive.google.com/file/d/1jMV_pgkuOI0gB2l3pvB_4fu0na6dvf8F/preview" allow="autoplay" allowfullscreen></iframe>
+          <div class="indep-cell-label">Video Estilo TikTok</div>
+        </div>
+        <div class="indep-cell" style="aspect-ratio:9/16;grid-column:span 1;">
+          <iframe src="https://drive.google.com/file/d/1x-3UBpqWh6Z0qI9t1ZFxQerOVH9Sv1mO/preview" allow="autoplay" allowfullscreen></iframe>
+          <div class="indep-cell-label">Weather App — Motion</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">✕ Cerrar</button>
+  <button class="lightbox-prev" onclick="lightboxNav(-1)">←</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="">
+  <button class="lightbox-next" onclick="lightboxNav(1)">→</button>
+  <div class="lightbox-counter" id="lightboxCounter"></div>
+</div>
+
+<footer>
+  <p>© 2026 Humberto Nuñez — AMEZCUA</p>
+  <p>lhumbertoamz.com</p>
+</footer>
+
+<script>
+const cursor=document.getElementById('cursor');
+const ring=document.getElementById('cursorRing');
+const label=document.getElementById('cursorLabel');
+let mouseX=0,mouseY=0,ringX=0,ringY=0;
+document.addEventListener('mousemove',e=>{mouseX=e.clientX;mouseY=e.clientY;cursor.style.left=mouseX+'px';cursor.style.top=mouseY+'px';label.style.left=mouseX+'px';label.style.top=mouseY+'px';});
+function animateRing(){ringX+=(mouseX-ringX)*.12;ringY+=(mouseY-ringY)*.12;ring.style.left=ringX+'px';ring.style.top=ringY+'px';requestAnimationFrame(animateRing);}
+animateRing();
+document.querySelectorAll('.project-item').forEach(item=>{
+  const cat=item.dataset.category||'View';
+  item.addEventListener('mouseenter',()=>{label.textContent=cat;label.style.opacity='1';ring.style.width='80px';ring.style.height='80px';});
+  item.addEventListener('mouseleave',()=>{label.style.opacity='0';ring.style.width='40px';ring.style.height='40px';});
+});
+document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('mouseenter',()=>{cursor.style.width='6px';cursor.style.height='6px';});el.addEventListener('mouseleave',()=>{cursor.style.width='10px';cursor.style.height='10px';});});
+const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:.1});
+document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+
+// CAROUSEL
+const track=document.getElementById('galleryTrack');
+const itemWidth=382;
+let currentIndex=0;
+const totalItems=5;
+function updateCarousel(){const max=Math.max(0,totalItems-Math.floor(window.innerWidth/itemWidth)||1);currentIndex=Math.max(0,Math.min(currentIndex,max));track.style.transform=`translateX(-${currentIndex*itemWidth}px)`;}
+document.getElementById('galleryNext').addEventListener('click',()=>{currentIndex++;updateCarousel();});
+document.getElementById('galleryPrev').addEventListener('click',()=>{currentIndex--;updateCarousel();});
+let autoScroll=setInterval(()=>{const max=Math.max(0,totalItems-(Math.floor(window.innerWidth/itemWidth)||1));if(currentIndex>=max)currentIndex=0;else currentIndex++;updateCarousel();},3000);
+track.parentElement.addEventListener('mouseenter',()=>clearInterval(autoScroll));
+track.parentElement.addEventListener('mouseleave',()=>{autoScroll=setInterval(()=>{const max=Math.max(0,totalItems-(Math.floor(window.innerWidth/itemWidth)||1));if(currentIndex>=max)currentIndex=0;else currentIndex++;updateCarousel();},3000);});
+
+// LIGHTBOX
+const lightboxImages=['adcademy-1.png','adcademy-2.png','adcademy-3.png','adcademy-4.png','adcademy-5.png'];
+let currentLightbox=0;
+function openLightbox(i){currentLightbox=i;const lb=document.getElementById('lightbox');document.getElementById('lightboxImg').src=lightboxImages[i];document.getElementById('lightboxCounter').textContent=`${i+1} / ${lightboxImages.length}`;lb.classList.add('active');document.body.style.overflow='hidden';}
+function closeLightbox(){document.getElementById('lightbox').classList.remove('active');document.body.style.overflow='';}
+function lightboxNav(d){currentLightbox=(currentLightbox+d+lightboxImages.length)%lightboxImages.length;openLightbox(currentLightbox);}
+document.getElementById('lightbox').addEventListener('click',function(e){if(e.target===this)closeLightbox();});
+document.addEventListener('keydown',e=>{const lb=document.getElementById('lightbox');if(!lb.classList.contains('active'))return;if(e.key==='Escape')closeLightbox();if(e.key==='ArrowRight')lightboxNav(1);if(e.key==='ArrowLeft')lightboxNav(-1);});
+</script>
+</body>
+</html>
