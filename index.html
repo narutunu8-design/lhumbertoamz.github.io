@@ -51,6 +51,13 @@ nav::before { content: ''; position: absolute; inset: 0; background: linear-grad
 .section-title { font-family: var(--font-display); font-size: clamp(32px,4vw,52px); font-weight: 800; letter-spacing: -.02em; }
 .reel-video { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden; background: var(--surface); }
 .reel-video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+.reel-mobile { display: none; align-items: center; gap: 20px; padding: 28px 24px; background: var(--surface); border: 1px solid var(--border); text-decoration: none; color: var(--text); transition: border-color .2s, background .2s; }
+.reel-mobile:hover { border-color: var(--accent); background: var(--surface2); }
+.reel-mobile-icon { width: 52px; height: 52px; border: 1px solid var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; color: var(--accent); flex-shrink: 0; }
+.reel-mobile-text { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+.reel-mobile-label { font-family: var(--font-display); font-size: 20px; font-weight: 700; }
+.reel-mobile-sub { font-family: var(--font-mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--text-muted); }
+.reel-mobile-arrow { font-size: 20px; color: var(--text-muted); }
 
 /* MARQUEE */
 .marquee-section { padding: 48px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; background: var(--surface); }
@@ -78,8 +85,8 @@ footer p { font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em;
   .marquee-section { padding: 28px 0; }
   .marquee-item { font-size: clamp(24px,6vw,36px); }
   .reel-section { padding: 0 20px 60px; }
-  .reel-video { padding-bottom: 0; height: 210px; }
-  .reel-video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+  .reel-desktop { display: none; }
+  .reel-mobile { display: flex; }
   footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px 20px; }
 }
 
@@ -150,9 +157,17 @@ footer p { font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em;
     <span class="section-num">Reel</span>
     <h2 class="section-title">2025</h2>
   </div>
-  <div class="reel-video">
+  <div class="reel-video reel-desktop">
     <iframe src="https://drive.google.com/file/d/16ZBG2NAl8KmJsJaYBNUq5uUSD461Qbke/preview" allow="autoplay" allowfullscreen></iframe>
   </div>
+  <a href="https://drive.google.com/file/d/16ZBG2NAl8KmJsJaYBNUq5uUSD461Qbke/view" target="_blank" rel="noopener" class="reel-mobile">
+    <div class="reel-mobile-icon">▶</div>
+    <div class="reel-mobile-text">
+      <span class="reel-mobile-label">Ver Reel 2025</span>
+      <span class="reel-mobile-sub">Abrir en Google Drive</span>
+    </div>
+    <span class="reel-mobile-arrow">↗</span>
+  </a>
 </section>
 
 <footer>
