@@ -125,58 +125,38 @@ nav::before { content: ''; position: absolute; inset: 0; background: linear-grad
 footer { background: var(--bg); padding: 32px 48px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); margin-top: 2px; }
 
 
-@media(max-width:900px) {
-  body { cursor: auto; }
-  .cursor, .cursor-ring, .cursor-label { display: none; }
-  nav { padding: 20px 24px; }
-  .nav-links { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(10,10,10,.97); flex-direction: column; align-items: center; justify-content: center; gap: 32px; z-index: 99; }
-  .nav-links.open { display: flex; }
-  .nav-links a { font-size: 20px; }
-  .page-hero { padding: 0 24px 48px; min-height: 50vh; }
-  .project-inner { grid-template-columns: 1fr !important; direction: ltr !important; }
-  .project-item:nth-child(even) .project-inner { direction: ltr !important; }
-  .project-media { min-height: 220px; }
-  .project-info { padding: 28px 20px; direction: ltr !important; }
-  .project-separator { padding: 24px 20px; }
-  .project-separator-label { font-size: clamp(36px,10vw,64px) !important; }
-  .project-videos-grid { grid-template-columns: 1fr 1fr; }
-  .video-thumb--full-row { grid-template-columns: 1fr; }
-  .boing-grid { grid-template-columns: repeat(2,1fr); }
-  .boing-phase { padding: 24px 20px; }
-  .indep-grid { grid-template-columns: 1fr 1fr; }
-  .adcademy-gallery .gallery-item { flex: 0 0 240px; width: 240px; height: 150px; }
-  footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px 20px; }
-}
-footer p { font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; color: var(--text-dim); text-transform: uppercase; }
-.fade-up { opacity: 0; transform: translateY(32px); transition: opacity .7s ease,transform .7s ease; }
-.fade-up.visible { opacity: 1; transform: translateY(0); }
-/* Mobile menu */
-.mobile-menu { display: none; position: fixed; inset: 0; background: rgba(10,10,10,.98); z-index: 200; flex-direction: column; align-items: center; justify-content: center; gap: 40px; }
-.mobile-menu.open { display: flex; }
-.mobile-menu a { font-family: var(--font-display); font-size: clamp(36px,8vw,56px); font-weight: 800; letter-spacing: -.02em; color: var(--text); text-decoration: none; }
-.mobile-menu a:hover { color: var(--accent); }
-.mobile-menu-close { position: absolute; top: 20px; right: 20px; background: transparent; border: 1px solid var(--border); color: var(--text-muted); padding: 6px 12px; font-size: 14px; cursor: pointer; font-family: var(--font-mono); }
+/* DRIVE BUTTON - solo visible en móvil */
+.drive-btn { display: none; align-items: center; gap: 16px; padding: 20px 24px; background: var(--surface2); border: 1px solid var(--border); text-decoration: none; color: var(--text); margin: 2px 0; transition: border-color .2s; }
+.drive-btn:hover { border-color: var(--accent); }
+.drive-btn-icon { width: 44px; height: 44px; border: 1px solid var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; color: var(--accent); flex-shrink: 0; }
+.drive-btn-text { display: flex; flex-direction: column; gap: 3px; flex: 1; }
+.drive-btn-label { font-family: var(--font-display); font-size: 16px; font-weight: 700; }
+.drive-btn-sub { font-family: var(--font-mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--text-muted); }
+.drive-btn-arrow { font-size: 18px; color: var(--text-muted); }
 
 @media(max-width:900px) {
   body { cursor: auto; }
-  .cursor,.cursor-ring,.cursor-label { display: none; }
+  .cursor, .cursor-ring, .cursor-label { display: none; }
   nav { padding: 16px 20px; }
-  .nav-links { display: none; }
+  .nav-links { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(10,10,10,.97); flex-direction: column; align-items: center; justify-content: center; gap: 32px; z-index: 99; }
+  .nav-links.open { display: flex; }
+  .nav-links a { font-size: 20px; }
   .nav-menu { display: block; }
   .page-hero { padding: 0 20px 40px; min-height: 40vh; }
   .project-inner { grid-template-columns: 1fr !important; direction: ltr !important; }
   .project-item:nth-child(even) .project-inner { direction: ltr !important; }
-  .project-media { min-height: 220px; }
-  .project-info { padding: 28px 20px; }
+  .project-media { display: none; }
+  .project-info { padding: 28px 20px; direction: ltr !important; }
   .project-separator { padding: 24px 20px; }
   .project-separator-label { font-size: clamp(36px,8vw,64px) !important; }
-  .boing-grid { grid-template-columns: repeat(2,1fr); }
-  .boing-phase { padding: 28px 20px; }
-  .indep-grid { grid-template-columns: 1fr 1fr; }
-  .gallery-item { flex: 0 0 240px; width: 240px; height: 150px; }
-  .gallery-label { padding: 12px 20px; }
-  .project-videos-grid { grid-template-columns: 1fr; }
-  .video-thumb--full-row { grid-template-columns: 1fr; }
+  .project-videos-grid { display: none; }
+  .video-thumb--full-row { display: none; }
+  .boing-grid { display: none; }
+  .boing-phase { padding: 24px 20px; }
+  .boing-phase-header { grid-template-columns: 1fr; }
+  .indep-grid { display: none; }
+  .adcademy-gallery { display: none; }
+  .drive-btn { display: flex; }
   footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px 20px; }
 }
 </style>
@@ -226,9 +206,17 @@ footer p { font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em;
           <div class="project-tags">
             <span class="tag">Rich Media</span><span class="tag">CMP</span><span class="tag">DCO</span><span class="tag">WordPress</span><span class="tag">Adobe Suite</span>
           </div>
-          <a href="https://www.adcademy.com.mx/" target="_blank" rel="noopener" class="project-link">Ver Adcademy en vivo ↗</a>
+          <a href="https://drive.google.com/file/d/1Ac6dZfEbtFt4fg9ZM5IN0u27e764mMtP/view" target="_blank" rel="noopener" class="project-link">Ver Adcademy en vivo ↗</a>
         </div>
       </div>
+      <a href="https://drive.google.com/drive/folders/18ToTrd1XQaOIl0-KzeYOn61bmqSSNjax" target="_blank" rel="noopener" class="drive-btn">
+        <div class="drive-btn-icon">▶</div>
+        <div class="drive-btn-text">
+          <span class="drive-btn-label">Ver videos del proyecto</span>
+          <span class="drive-btn-sub">Abrir en Google Drive</span>
+        </div>
+        <span class="drive-btn-arrow">↗</span>
+      </a>
       <div class="adcademy-gallery">
         <div class="gallery-label">
           <span>Adcademy — Sitio e-learning diseñado y montado en WordPress</span>
@@ -269,6 +257,12 @@ footer p { font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em;
           <iframe src="https://drive.google.com/file/d/1lwKVQCtXQgHeGsvckRMUhAvtxsjIyXD7/preview" allow="autoplay" allowfullscreen></iframe>
         </div>
       </div>
+      <!-- Drive button móvil - ÉCHALE -->
+      <a href="https://drive.google.com/file/d/1lwKVQCtXQgHeGsvckRMUhAvtxsjIyXD7/view" target="_blank" rel="noopener" class="drive-btn">
+        <div class="drive-btn-icon">▶</div>
+        <div class="drive-btn-text"><span class="drive-btn-label">Ver videos — ÉCHALE</span><span class="drive-btn-sub">Abrir en Google Drive</span></div>
+        <span class="drive-btn-arrow">↗</span>
+      </a>
       <div class="project-videos-grid">
         <div class="video-thumb video-thumb--vertical"><iframe src="https://drive.google.com/file/d/11u3yRwjo2IlHDHReuCABTXa66m3L-ns1/preview" allow="autoplay" allowfullscreen></iframe></div>
         <div class="video-thumb video-thumb--vertical"><iframe src="https://drive.google.com/file/d/1OiDX_kIKTWQkH4VZdmXgGS09qxJjnxsY/preview" allow="autoplay" allowfullscreen></iframe></div>
@@ -301,6 +295,12 @@ footer p { font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em;
           <a href="ia.html" class="project-link">Ver case study completo →</a>
         </div>
       </div>
+      <!-- Drive button móvil - Boing -->
+      <a href="https://drive.google.com/file/d/1OJ2wvT2ZPpXgmkMAp7cjIxEPnzB-jzkH/view" target="_blank" rel="noopener" class="drive-btn">
+        <div class="drive-btn-icon">▶</div>
+        <div class="drive-btn-text"><span class="drive-btn-label">Ver video del proceso</span><span class="drive-btn-sub">Abrir en Google Drive</span></div>
+        <span class="drive-btn-arrow">↗</span>
+      </a>
     </div>
 
     <!-- 04 POP & POUR -->
@@ -328,6 +328,12 @@ footer p { font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em;
         <div class="video-thumb" style="aspect-ratio:16/9;position:relative;"><iframe src="https://drive.google.com/file/d/1FAXhK73nP1MJ6Z9FU6rJAxLVVm136PGY/preview" allow="autoplay" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:none;"></iframe></div>
         <div class="video-thumb" style="aspect-ratio:16/9;position:relative;"><iframe src="https://drive.google.com/file/d/1oKxUbwcHeIxhNlm_Xs4-oVxmuMo3h_CT/preview" allow="autoplay" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:none;"></iframe></div>
       </div>
+      <!-- Drive button móvil - Pop & Pour -->
+      <a href="https://drive.google.com/file/d/1VMLYqtLReVTUyNw06D1xXBioIAUMw6HP/view" target="_blank" rel="noopener" class="drive-btn">
+        <div class="drive-btn-icon">▶</div>
+        <div class="drive-btn-text"><span class="drive-btn-label">Ver videos — Pop & Pour</span><span class="drive-btn-sub">Abrir en Google Drive</span></div>
+        <span class="drive-btn-arrow">↗</span>
+      </a>
     </div>
 
     <!-- 05 SKIN -->
@@ -350,6 +356,12 @@ footer p { font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em;
           </div>
         </div>
       </div>
+      <!-- Drive button móvil - Skin -->
+      <a href="https://drive.google.com/file/d/1skCpV-XK43Qo5PF4L7i1cI8AQlkMUMYu/view" target="_blank" rel="noopener" class="drive-btn">
+        <div class="drive-btn-icon">▶</div>
+        <div class="drive-btn-text"><span class="drive-btn-label">Ver video — Skin</span><span class="drive-btn-sub">Abrir en Google Drive</span></div>
+        <span class="drive-btn-arrow">↗</span>
+      </a>
     </div>
 
     <!-- 06 INDEPENDIENTES -->
@@ -363,6 +375,12 @@ footer p { font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em;
         <div class="project-category">Proyectos Independientes</div>
         <h3 class="project-name" style="margin-bottom:32px;">Personal<br>Work</h3>
       </div>
+      <!-- Drive button móvil - Independientes -->
+      <a href="https://drive.google.com/drive/folders/18ToTrd1XQaOIl0-KzeYOn61bmqSSNjax" target="_blank" rel="noopener" class="drive-btn">
+        <div class="drive-btn-icon">▶</div>
+        <div class="drive-btn-text"><span class="drive-btn-label">Ver proyectos independientes</span><span class="drive-btn-sub">Abrir en Google Drive</span></div>
+        <span class="drive-btn-arrow">↗</span>
+      </a>
       <div class="indep-grid">
         <div class="indep-cell" style="aspect-ratio:16/9;">
           <iframe src="https://drive.google.com/file/d/17N3DEzyEFqzVib0TN4S7YGy7UYnaMyyD/preview" allow="autoplay" allowfullscreen></iframe>
